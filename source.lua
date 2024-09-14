@@ -32,7 +32,7 @@ local n = Instance.new("Frame")
 local a = Instance.new("TextLabel")
 local _o = Instance.new("ImageLabel")
 random.Name = randomString()
-random.Parent = game.CoreGui or game.CoreGui.RobloxGui
+random.Parent = gethui() or game.CoreGui or game.CoreGui.RobloxGui
 e.Name = "e"
 e.Parent = random
 e.AnchorPoint = Vector2.new(1, 1)
@@ -182,3 +182,7 @@ _o.BorderSizePixel = 0
 _o.Position = UDim2.new(0.300000012, 0, 0.340909094, 0)
 _o.Size = UDim2.new(0, 100, 0, 100)
 _o.Image = "http://www.roblox.com/asset/?id=90844484964694"
+
+function source:ChangeName(Config)
+	d.Text = Config.Name or "IY Library"
+end
