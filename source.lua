@@ -1,9 +1,10 @@
 -- HUGEEE credits to infinite yield
+local prefix = ";"
 local source = {}
 local commands = {}
 local ts = game:GetService("TweenService")
-local insettings = false
-local prefix = ";"
+local inSettings = false
+local keepmenuopen = false
 
 function randomString()
 	local length = math.random(10,20)
@@ -103,6 +104,7 @@ h.ScrollBarThickness = 8
 h.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
 h.VerticalScrollBarInset = Enum.ScrollBarInset.Always
 h.AutomaticCanvasSize = Enum.AutomaticSize.Y
+h.Visible = false
 i.Name = "i"
 i.Parent = h
 i.SortOrder = Enum.SortOrder.LayoutOrder
@@ -186,3 +188,39 @@ function source:Change(Config)
 	_o.Image = "http://www.roblox.com/asset/?id=" .. Config.StartImage or "http://www.roblox.com/asset/?id=90844484964694"
 	d.Text = Config.Name or "example"
 end
+
+function source:AddCommand(Config)
+	local CMD = Instance.new("TextLabel")
+	CMD.Name = "CMD"
+	CMD.Parent = h
+	CMD.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	CMD.BackgroundTransparency = 1.000
+	CMD.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	CMD.BorderSizePixel = 0
+	CMD.Size = UDim2.new(0, 200, 0, 20)
+	CMD.Font = Enum.Font.SourceSans
+	CMD.TextColor3 = Color3.fromRGB(255, 255, 255)
+	CMD.TextSize = 18.000
+	CMD.TextXAlignment = Enum.TextXAlignment.Left
+	CMD.Text = Config.Name or "DefaultCommand"
+	table.insert(commands,Config.Name or "DefaultCommand")
+end
+
+function source:AddEmptyCommand()
+	local CMD = Instance.new("TextLabel")
+	CMD.Name = "EMPTY_CMD"
+	CMD.Parent = h
+	CMD.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	CMD.BackgroundTransparency = 1.000
+	CMD.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	CMD.BorderSizePixel = 0
+	CMD.Size = UDim2.new(0, 200, 0, 20)
+	CMD.Font = Enum.Font.SourceSans
+	CMD.TextColor3 = Color3.fromRGB(255, 255, 255)
+	CMD.TextSize = 18.000
+	CMD.TextXAlignment = Enum.TextXAlignment.Left
+	CMD.Text = ""
+end
+
+_o:TweenSize(UDim2.new(0,0,0,0),Enum.EasingStyle.Quart,Enum.EasingDirection.Out,0.25)
+_o:Destroy()
