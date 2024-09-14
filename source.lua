@@ -183,6 +183,7 @@ _o.Position = UDim2.new(0.300000012, 0, 0.340909094, 0)
 _o.Size = UDim2.new(0, 100, 0, 100)
 _o.Image = "http://www.roblox.com/asset/?id=90844484964694"
 
-function source:ChangeName(Config)
+function source:Change(Config)
+	_o.Image = "http://www.roblox.com/asset/?id=" .. Config.StartImage or "http://www.roblox.com/asset/?id=90844484964694"
 	d.Text = Config.Name or "IY Library"
 end
