@@ -1,7 +1,6 @@
 -- HUGEEE credits to infinite yield
 local source = {}
 local commands = {}
-local cloneref = cloneref or function(o) return o end
 local ts = game:GetService("TweenService")
 local insettings = false
 local prefix = ";"
