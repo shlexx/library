@@ -184,5 +184,5 @@ _o.Image = "http://www.roblox.com/asset/?id=90844484964694"
 
 function source:Change(Config)
 	_o.Image = "http://www.roblox.com/asset/?id=" .. Config.StartImage or "http://www.roblox.com/asset/?id=90844484964694"
-	d.Text = Config.Name or "IY Library"
+	d.Text = Config.Name or "example"
 end
